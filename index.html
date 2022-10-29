@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+      <div class="favorites">Favorites {{ nFavorites }}</div>
+      <div class="character-display">
+        <div class="character-container" v-for="character in characters">
+          <character-display
+            :character="character"
+            :favorite="onFavorites(character.id)"
+            @add-to-favorites="addToFavorites"
+            @remove-to-favorites="removeToFavorites"
+          ></character-display>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+  <script src="./components/characterDisplay.js"></script>
+  <script>
+    const mountedApp = app.mount("#app");
+  </script>
+</html>
